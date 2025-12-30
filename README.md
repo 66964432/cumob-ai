@@ -4,7 +4,7 @@
 
 ### 项目概述
 这是一个基于 Next.js 构建的现代化 AI 内容生成平台，集成了多种 AI 服务提供商的 API，实现从文本到完整多媒体内容的自动化生成流程。项目代号为 "QuickNovel-V2"，README 中显示的正式名称为 "Cumob AI"。
-项目可在官网https://www.cumob.com/免费体验，算力成本需要自筹。
+项目可在官网https://www.cumob.com/ 免费体验，算力成本需要自筹。
 
 ### 核心功能模块
 
