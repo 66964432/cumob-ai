@@ -1,115 +1,144 @@
-# cumob-ai
+# CuMob AI - AI 视频生成平台
 
-## 项目总结：基于Sora API的AI漫剧/分镜/视频提示词辅助工具 内容生成平台
+基于 Next.js 构建的现代化 AI 视频生成平台，集成了 Coze 工作流 API 调用功能。
 
-### 项目概述
-这是一个基于 Next.js 构建的现代化 AI 内容生成平台，集成了多种 AI 服务提供商的 API，实现从文本到完整多媒体内容的自动化生成流程。项目代号为 "QuickNovel-V2"，README 中显示的正式名称为 "Cumob AI"。
-项目可在官网https://www.cumob.com/ 免费体验，算力成本需要自筹。
+## 功能特性
 
-### 核心功能模块
+- 🎨 **现代化界面设计** - 深色主题，玻璃拟态风格
+- 🚀 **Coze 工作流集成** - 支持流式响应，实时显示生成内容
+- 📝 **丰富的参数配置** - 风格、情感、多语言支持
+- 🔒 **安全的 API 密钥管理** - 本地存储，安全可靠
+- 📱 **响应式设计** - 完美适配移动设备
+- ⚡ **高性能** - Next.js 15 + TypeScript + Tailwind CSS
 
-#### 1. **漫画生成工作流** (Comic Workflow)
-- **一键成片**：从主题生成完整的漫画作品
-- **分镜设计**：自动生成故事分镜和场景描述
-- **图片生成**：集成 GRSAI、LaoZhang 等多个图片生成 API
-- **语音合成**：MiniMax 语音合成 + DeepL 翻译，多语言支持
-- **视频合成**：Coze 工作流生成最终视频
+## 技术栈
 
-#### 2. **AI 服务集成**
-- **Coze**：工作流 API，视频生成和流式响应
-- **MiniMax**：语音合成，支持多种声音和情感
-- **DeepL**：高质量文本翻译
-- **GRSAI**：Sora 图像生成，Nano Banana 系列模型
-- **LaoZhang**：图像生成服务
+- **框架**: Next.js 15.3.2
+- **语言**: TypeScript
+- **样式**: Tailwind CSS
+- **组件**: shadcn/ui + Radix UI
+- **包管理**: Bun
+- **代码质量**: Biome + ESLint
 
-#### 3. **前端界面**
-- **现代化设计**：深色主题，玻璃拟态风格
-- **响应式布局**：完美适配桌面和移动设备
-- **实时反馈**：流式响应显示生成进度
-- **参数配置**：丰富的自定义选项（风格、情感、语言等）
-- **多媒体展示**：音频播放器、视频播放器、图片画廊
+## 快速开始
 
-#### 4. **后端 API**
-- **RESTful API**：Next.js App Router 架构
-- **流式处理**：SSE (Server-Sent Events) 实时响应
-- **并发控制**：批量请求处理和速率限制
-- **错误处理**：完善的异常处理和状态管理
-- **连接池**：Undici HTTP 客户端连接复用
+### 安装依赖
 
-### 技术架构
+```bash
+bun install
+```
 
-#### 前端技术栈
-- **框架**：Next.js 15.3.2 (App Router)
-- **语言**：TypeScript
-- **样式**：Tailwind CSS
-- **UI组件**：shadcn/ui + Radix UI
-- **状态管理**：React Hooks
-- **包管理**：Bun
+### 开发环境
 
-#### 后端技术栈
-- **运行时**：Node.js (Next.js 内置)
-- **HTTP 客户端**：Undici (连接池)
-- **并发处理**：Promise-based 异步处理
-- **日志系统**：自定义日志模块
-- **监控**：API 调用监控和性能指标
+```bash
+bun dev
+```
 
-#### 代码质量
-- **代码检查**：Biome + ESLint
-- **类型安全**：严格的 TypeScript 配置
-- **文档**：MD 文档和代码注释
+访问 [http://localhost:3000](http://localhost:3000) 查看应用。
 
-### 项目结构分析
+### 构建生产版本
 
-#### 目录结构特点
-- **高内聚低耦合**：按功能模块划分目录
-- **分层架构**：API层、服务层、组件层分离
-- **可扩展性**：模块化设计便于新增功能
-- **配置管理**：环境变量和配置文件分离
+```bash
+bun build
+bun start
+```
 
-#### 关键文件分析
-- **核心业务逻辑**：`lib/services/comicWorkflowService.ts` (1008行)
-- **语音合成引擎**：`lib/transAndSpeechSynthesis.ts` (998行)
-- **主界面组件**：`components/ComicForm.tsx` (3797行)
-- **HTTP 客户端**：`lib/httpClient.ts` (204行)
+## 项目结构
 
-### 性能优化
+```
+├── app/                    # Next.js App Router
+│   ├── api/               # API 路由
+│   ├── workflow/          # 工作流页面
+│   └── page.tsx           # 主页面
+├── components/            # React 组件
+│   ├── ui/               # shadcn/ui 组件
+│   ├── CozeWorkflowForm.tsx
+│   └── StreamingOutput.tsx
+├── hooks/                 # 自定义 Hooks
+├── lib/                   # 工具函数
+├── types/                 # TypeScript 类型定义
+├── public/               # 静态资源
+│   ├── favicon.ico       # 网站图标
+│   └── logo.png          # 网站 Logo
+└── package.json          # 项目配置
+```
 
-#### 并发处理
-- **批量请求**：支持多个任务并发处理
-- **连接池**：复用 HTTP 连接提高性能
-- **速率限制**：防止 API 调用过频
-- **超时控制**：完善的超时和重试机制
+## 主要功能
 
-#### 资源管理
-- **内存优化**：流式处理避免大文件缓存
-- **错误恢复**：失败任务自动重试和状态恢复
-- **监控告警**：API 调用监控和日志记录
+### 1. 视频画廊展示
+- 瀑布流布局展示 AI 生成的视频
+- 分类过滤和搜索功能
+- 响应式设计
 
-### 部署和运维
+### 2. Coze 工作流调用
+- 支持多种参数配置
+- 流式响应实时显示
+- 错误处理和状态管理
+- 表单数据持久化
 
-#### 部署方式
-- **Netlify**：配置就绪的静态部署
-- **Vercel**：支持的云平台部署
-- **自托管**：支持服务器部署
+### 3. 用户界面
+- 深色主题设计
+- 现代化交互体验
+- 移动端适配
 
-#### 环境配置
-- **环境变量**：API 密钥等敏感信息配置
-- **构建脚本**：开发/生产环境分离
-- **日志管理**：分级日志输出和持久化
+## API 配置
 
-### 项目特点
+### 环境变量
 
-#### 技术亮点
-- **多 API 集成**：无缝集成多个 AI 服务商
-- **实时流式处理**：SSE 实现实时进度反馈
-- **复杂工作流**：从文本到视频的完整自动化流程
-- **国际化支持**：多语言翻译和语音合成
+创建 `.env.local` 文件：
 
-#### 用户体验
-- **一键操作**：复杂的 AI 流程简化为用户操作
-- **实时反馈**：生成过程可视化
-- **参数定制**：丰富的个性化配置选项
-- **跨设备支持**：响应式设计适配各种设备
+```env
+# Coze API 配置
+COZE_API_TOKEN=your_coze_token
+COZE_WORKFLOW_ID=7555704402121506826
 
-### 总结
-这是一个功能完整、架构优良的 AI 内容生成 SaaS 平台，将多个 AI 能力整合成一套完整的创作工具链。从创意输入到最终多媒体输出，实现了端到端的自动化内容生成，为用户提供了强大的 AI 创作能力。代码质量高，架构设计合理，具有很好的扩展性和维护性。
+# 其他 API 配置
+DEEPL_API_KEY=your_deepl_key
+MINIMAX_API_KEY=your_minimax_key
+MINIMAX_GROUP_ID=your_group_id
+```
+
+## 开发指南
+
+### 添加新的 UI 组件
+
+使用 shadcn/ui CLI：
+
+```bash
+bunx shadcn@latest add [component-name]
+```
+
+### 代码格式化
+
+```bash
+bun format
+```
+
+### 类型检查
+
+```bash
+bun lint
+```
+
+## 部署
+
+### Netlify
+
+项目已配置 `netlify.toml`，可直接部署到 Netlify。
+
+### Vercel
+
+```bash
+vercel deploy
+```
+
+## 贡献
+
+1. Fork 项目
+2. 创建功能分支
+3. 提交更改
+4. 发起 Pull Request
+
+## 许可证
+
+MIT License
