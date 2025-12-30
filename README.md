@@ -1,6 +1,6 @@
 # cumob-ai
 
-## 项目总结：QuickNovel-V2 - AI 内容生成平台
+## 项目总结：基于Sora API的AI漫剧/分镜/视频提示词辅助工具 内容生成平台
 
 ### 项目概述
 这是一个基于 Next.js 构建的现代化 AI 内容生成平台，集成了多种 AI 服务提供商的 API，实现从文本到完整多媒体内容的自动化生成流程。项目代号为 "QuickNovel-V2"，README 中显示的正式名称为 "Cumob AI"。
