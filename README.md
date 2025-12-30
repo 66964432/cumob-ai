@@ -3,8 +3,8 @@
 ## 项目总结：基于sora API的AI漫剧/分镜/视频提示词辅助工具
 
 ### 项目概述
-这是一个基于 Next.js 构建的现代化 AI 内容生成平台，集成了多种 AI 服务提供商的 API，实现从文本到完整多媒体内容的自动化生成流程。项目名称为 "QuickNovel-V2"，但 README 中显示为 "CuMob AI"。
-
+这是一个基于 Next.js 构建的现代化 AI 内容生成平台，集成了多种 AI 服务提供商的 API，实现从文本到完整多媒体内容的自动化生成流程。项目代号为 "QuickNovel-V2"，但 README 中显示正式名称为 "Cumob AI"。
+官网体验地址：https://www.cumob.com/ 当前完全免费，但算力需要自筹。
 ### 核心功能模块
 
 #### 1. **漫画生成工作流** (Comic Workflow)
